@@ -1,0 +1,7 @@
+artifact_location: file:///G:\Mi unidad\Maestría\MLOps\mlops-final-project\mlruns/541480106175080272
+creation_time: 1772238619827
+experiment_id: '541480106175080272'
+last_update_time: 1772238619827
+lifecycle_stage: active
+name: creditcard_fraud_detection
+workspace: default

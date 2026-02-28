@@ -2,6 +2,7 @@
 FInal work description in  the [final_project_description.md](final_project_description.md) file.
 
 Student info:
+
 - Full name: Irving Pérez
 - e-mail: iperezh@uni.pe
 - Grupo: 2

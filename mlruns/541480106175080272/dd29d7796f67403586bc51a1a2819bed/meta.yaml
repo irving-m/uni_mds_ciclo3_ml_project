@@ -1,0 +1,14 @@
+artifact_uri: file:///G:\Mi unidad\Maestría\MLOps\mlops-final-project\mlruns/541480106175080272/dd29d7796f67403586bc51a1a2819bed/artifacts
+end_time: 1772240460394
+entry_point_name: ''
+experiment_id: '541480106175080272'
+lifecycle_stage: active
+run_id: dd29d7796f67403586bc51a1a2819bed
+run_name: HistGradientBoosting
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772240456685
+status: 3
+tags: []
+user_id: IRVIN

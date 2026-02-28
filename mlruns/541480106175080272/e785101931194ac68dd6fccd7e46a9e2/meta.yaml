@@ -1,0 +1,14 @@
+artifact_uri: file:///G:\Mi unidad\Maestría\MLOps\mlops-final-project\mlruns/541480106175080272/e785101931194ac68dd6fccd7e46a9e2/artifacts
+end_time: 1772240456651
+entry_point_name: ''
+experiment_id: '541480106175080272'
+lifecycle_stage: active
+run_id: e785101931194ac68dd6fccd7e46a9e2
+run_name: ExtraTrees
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772240431419
+status: 3
+tags: []
+user_id: IRVIN
