@@ -1,0 +1,14 @@
+artifact_uri: file:///G:\Mi unidad\Maestría\MLOps\mlops-final-project\mlruns/541480106175080272/ed5fea1c8c9a4c159e2e1423bebdbd03/artifacts
+end_time: 1772240431387
+entry_point_name: ''
+experiment_id: '541480106175080272'
+lifecycle_stage: active
+run_id: ed5fea1c8c9a4c159e2e1423bebdbd03
+run_name: RandomForest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772240323560
+status: 3
+tags: []
+user_id: IRVIN

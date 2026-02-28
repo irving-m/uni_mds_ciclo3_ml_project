@@ -1,0 +1,14 @@
+artifact_uri: file:///G:\Mi unidad\Maestría\MLOps\mlops-final-project\mlruns/541480106175080272/a8315cd6c00e453483a65c46eb4185a3/artifacts
+end_time: 1772240467100
+entry_point_name: ''
+experiment_id: '541480106175080272'
+lifecycle_stage: active
+run_id: a8315cd6c00e453483a65c46eb4185a3
+run_name: XGBoost
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772240460423
+status: 3
+tags: []
+user_id: IRVIN
