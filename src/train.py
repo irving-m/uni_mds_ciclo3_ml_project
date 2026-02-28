@@ -119,9 +119,13 @@ def main():
 
         mlflow.log_artifact(model_path)
 
+        mlflow.register_model(
+            f"runs:/{mlflow.active_run().info.run_id}/model",
+            name="CreditCard_XGB"
+        )
+        
     print("Training complete. Model saved.")
 
 
 if __name__ == "__main__":
     main()
-    
