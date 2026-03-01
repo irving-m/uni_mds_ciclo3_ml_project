@@ -18,7 +18,7 @@ This project implements and end-to-end machine learning workflow for credit card
 - Inference testing
 - Automated reporting 
 
-Our objective is not only to build a strong model well fitted to the  task at hand, but also to develop a production-style ML pipeline.
+Our objective is not only to build a strong model well fitted to the task at hand, but also to develop a production-style ML pipeline.
 
 ## Problem
 
@@ -31,13 +31,8 @@ Key challenges:
 - Need for probabilistic predictions
 - Reproducible experimentation
   
-<img width="730" height="572" alt="imagen" src="https://github.com/user-attachments/assets/6e455e79-eb9e-412d-a32d-391e74190d0b" />
 
-  
-Put here the description, implementation doc, info, results, etc about your work.
-You can also use links/reference to other documents/files form this repository or outside resources.
-
-## Preparing the data
+# Preparing the data
 Run:
 
 ```
@@ -46,38 +41,42 @@ python src/data_preparation.py
 1. It downloads the Kaggle dataset for Credit card fraud detection
 2. Performs data transformation on the columns Amount (log scaling) and Time (standard scaling)
 3. Saves the prepared dataset locally
+   
+## Key findings
+- Most columns come from a PCA process according to the dataset authors, so they're already standardized.
+- The amount column is heavily skewed, so a log-scaling transformation should be performed.
+- The time and log-amount columns are standardized to improve later training.
 
-Other columns don't need transformations since they come from a PCA process according to the author of the dataset.
 <img width="736" height="552" alt="imagen" src="https://github.com/user-attachments/assets/8c1ed95d-e155-4122-a480-0a549649fa92" />
-<img width="716" height="546" alt="imagen" src="https://github.com/user-attachments/assets/5aabfc45-f916-404d-91b6-be75dce18598" />
+<img width="716" height="548" alt="image" src="https://github.com/user-attachments/assets/005784d3-8066-44bd-be92-2674fa9f98b2" />
 <img width="730" height="543" alt="imagen" src="https://github.com/user-attachments/assets/d3283a5f-cf1e-416e-8f8b-2b2254e36960" />
 
-## Selecting the Model
-1. Define AUPRC as our target metric, imbalanced nature of the dataset. 
-2. Define logistic regression as baseline model with 0.63 AUPRC
+# Selecting the Model
+1. Define AUPRC as our key performance metric, due to the imbalanced nature of the dataset. 
+2. Define logistic regression as *baseline model* with 0.63 AUPRC
 3. Train 4 different models:
 - Random Forest
 - Extra Trees
 - HistGradientBoosting
 - XGBoosting
-4. Log the results with MLFlow, stored locally on mlruns/; inspect the results with
-  ```
-  mlflow ui
-  ```
+4. Log the results with MLFlow
 
 <img width="1113" height="506" alt="imagen" src="https://github.com/user-attachments/assets/d67e0a98-242e-4e56-979b-e6f95f97c81c" />
 
-This XGBoost model was selected due to its high AUPRC and recall.
+The results of model trials are stored locally on mlruns/, they can be accessed with:
+``` 
+mlflow ui
+```
+ **The XGBoost model was selected due to its high AUPRC (0.83) and recall (0.76)**
 
-
-## Training the Model
+# Training the Model
 Run:
 
 ```bash
 python src/train.py
 ```
 
-The training pipeline:
+## The training pipeline:
 
 1. Loads prepared dataset
 2. Performs stratified train/test split (85% train / 15% test)
@@ -87,13 +86,17 @@ The training pipeline:
 
 <img width="1109" height="509" alt="imagen" src="https://github.com/user-attachments/assets/047a9765-0fe8-421a-8fb5-23ebdd1dfce5" />
 
-## Serving the model
+# Serving the model
 Run 
 
 ```bash
 python src/serving.py
 ```
 
+1. Set up a flask api with the serialized model
+2. Make inference with scripts in test/
+3. Inference results are reporte to reports/
+   
 Server runs at:
 
 ```bash
@@ -107,12 +110,14 @@ tests/inference.py
 ```
 
 Reports from inference.py are saved to reports/
+
 <img width="634" height="510" alt="imagen" src="https://github.com/user-attachments/assets/180a76b6-6db9-4136-9be9-0039e0a0717c" />
 
-Reproducibility
+# Conclusion
+We were able to train Machine Learning model, obtain and prepare data for credit card fraud, and serve the model in a comfortable fashion, and make good inference with it (0.85 AUPRC)
 
-- Fixed random seeds
-- Stratified splits
-- MLflow experiment tracking
-- Saved model artifacts
-- Large datasets are excluded from the repository via .gitignore.
+# Improvements and lessons
+- The model can still be improved with hyperparameter tuning
+- We can choose different thresholds to improve our AUPRC or recall
+- The model serving can be improved with a more user friendly interface via flask
+- Datasets were commited accidentaly, causing several issues in later commits, we should always add *.csv to .gitignore
